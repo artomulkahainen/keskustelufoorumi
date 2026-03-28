@@ -1,0 +1,45 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: keskustelufoorumi-backend
+    volumes:
+      - .:/app
+    ports:
+      - "3001:3001"
+    environment:
+      DB_HOST: "db"
+      DB_USER: "postgres"
+      DB_PASSWORD: "testdb"
+      DB_NAME: "keskustelufoorumidb"
+      DB_PORT: 5432
+      PORT: "3001"
+    depends_on:
+      - db
+  #ui:
+  #    build:
+  #        context: ../frontend
+  #        dockerfile: Dockerfile
+  #    container_name: keskustelufoorumi-frontend
+  #    volumes:
+  #        - ../frontend:/app
+  #    ports:
+  #        - '5173:5173'
+  #    depends_on:
+  #        - api
+  db:
+    image: postgres:17-alpine
+    container_name: keskustelufoorumi-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: testdb
+      POSTGRES_DB: keskustelufoorumidb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+volumes:
+  pg_data:
