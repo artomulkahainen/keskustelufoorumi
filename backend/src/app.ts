@@ -3,6 +3,11 @@ import { Post } from "./models/Post.model.ts";
 
 export const app = new Hono();
 
+app.onError((err, c) => {
+  console.error(err);
+  return c.text("Internal Server Error", 500);
+});
+
 app.get("/health", async (c) => {
   return c.json({ status: "ok" });
 });
