@@ -7,10 +7,8 @@ import { sequelize } from "./config/db.ts";
   {
     try {
       await sequelize.authenticate();
-      console.log("authenctiacted");
-      await sequelize.sync({ alter: true });
+      await sequelize.sync({ alter: false });
       console.log("Database synchronized");
-      console.log(process.env.DB_NAME);
 
       const server = serve(
         {
