@@ -43,4 +43,20 @@ describe("POST /posts", () => {
       content: "hello",
     });
   });
+    it("should fail if user is not sent with body request", async () => {
+
+    mockCreate.mockRejectedValueOnce(new Error("asd"));
+
+    const res = await app.request("http://localhost/posts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({content: "hello" }),
+    });
+
+
+    expect(mockCreate).toHaveBeenCalledTimes(1);
+    expect(mockCreate).toHaveBeenCalledWith({
+      content: "hello",
+    });
+  });
 });
