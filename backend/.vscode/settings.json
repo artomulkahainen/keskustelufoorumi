@@ -1,0 +1,15 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.useTabStops": true,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "prettier.endOfLine": "lf",
+  "gitlens.telemetry.enabled": false,
+  "python.analysis.reportExtraTelemetry": false,
+  "redhat.telemetry.enabled": null,
+  "editor.experimental.treeSitterTelemetry": false
+}
