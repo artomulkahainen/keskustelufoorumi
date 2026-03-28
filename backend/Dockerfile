@@ -2,5 +2,5 @@ FROM node:24-alpine
 WORKDIR /app
 COPY . .
 RUN npm ci
-EXPOSE 3001
+EXPOSE 8080
 CMD ["npm", "run", "dev"]
