@@ -1,13 +1,6 @@
 import { serve } from "@hono/node-server";
-import { Hono } from "hono";
+import { app } from "./app.ts";
 import { sequelize } from "./config/db.ts";
-import { Post } from "./models/Post.model.ts";
-
-const app = new Hono();
-
-app.get("/health", async (c) => {
-  return c.json({ status: "ok" });
-});
 
 // handle app launch
 (async () => {
