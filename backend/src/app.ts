@@ -7,14 +7,12 @@ app.get("/health", async (c) => {
   return c.json({ status: "ok" });
 });
 
-
-const POSTS_ENDPOINT = '/posts'
+const POSTS_ENDPOINT = "/posts";
 app.post(POSTS_ENDPOINT, async (c) => {
   const body = await c.req.json();
   const user = body.user;
   const content = body.content;
 
-  const newPost = await Post.create({createdBy: user, content});
+  const newPost = await Post.create({ createdBy: user, content });
   return c.json(newPost);
 });
-
