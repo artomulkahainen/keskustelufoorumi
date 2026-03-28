@@ -52,7 +52,7 @@ describe("POST /posts", () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ content: "hello" }),
     });
-
+    expect(res.status).toBe(500);
     expect(mockCreate).toHaveBeenCalledTimes(1);
     expect(mockCreate).toHaveBeenCalledWith({
       content: "hello",
